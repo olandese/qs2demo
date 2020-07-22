@@ -2,7 +2,7 @@ version: "3.2"
 
 services:
   vote:
-    image: dockersamples/examplevotingapp_vote:dotnet-nanoserver-sac2016
+    image: dockersamples/examplevotingapp_vote:dotnet-nanoserver
     build: 
       context: ./vote/dotnet
     ports:
@@ -11,7 +11,7 @@ services:
       - message-queue
 
   result:
-    image: dockersamples/examplevotingapp_result:dotnet-nanoserver-sac2016
+    image: dockersamples/examplevotingapp_result:dotnet-nanoserver
     build: 
       context: ./result/dotnet
     ports:
@@ -22,7 +22,7 @@ services:
       - db
 
   worker:
-    image: dockersamples/examplevotingapp_worker:dotnet-nanoserver-sac2016
+    image: dockersamples/examplevotingapp_worker:dotnet-nanoserver
     build:
       context: ./worker/dotnet
     environment:      

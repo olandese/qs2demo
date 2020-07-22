@@ -2,7 +2,7 @@ version: "3.2"
 
 services:
   vote:
-    image: dockersamples/examplevotingapp_vote:dotnet-nanoserver-2004
+    image: dockersamples/examplevotingapp_vote:dotnet-nanoserver
     build: 
       context: ./vote/dotnet
       dockerfile: Dockerfile.1809
@@ -12,7 +12,7 @@ services:
       - message-queue
 
   result:
-    image: dockersamples/examplevotingapp_result:dotnet-nanoserver-2004
+    image: dockersamples/examplevotingapp_result:dotnet-nanoserver
     build: 
       context: ./result/dotnet
       dockerfile: Dockerfile.1809
@@ -24,7 +24,7 @@ services:
       - db
 
   worker:
-    image: dockersamples/examplevotingapp_worker:dotnet-nanoserver-2004
+    image: dockersamples/examplevotingapp_worker:dotnet-nanoserver
     build:
       context: ./worker/dotnet
       dockerfile: Dockerfile.1809
@@ -35,10 +35,10 @@ services:
       - db
 
   message-queue:
-    image: dockersamples/nats:nanoserver-2004
+    image: dockersamples/nats:nanoserver
 
   db:
-    image: dockersamples/tidb:nanoserver-2004
+    image: dockersamples/tidb:nanoserver
     ports:
       - "3306:4000"
 
